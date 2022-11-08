@@ -99,7 +99,9 @@ function initFormHandler() {
       storage = JSON.stringify(recipeObject);
     }
     else {
-      storage = storage + JSON.stringify(recipeObject);
+      storage = JSON.parse(storage);
+      storage.push(recipeObject);
+      storage = JSON.stringify(storage);
     }
     localStorage.setItem('recipes',storage);
   });
